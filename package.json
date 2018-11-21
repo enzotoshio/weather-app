@@ -1,0 +1,23 @@
+{
+  "name": "weather-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.5",
+    "angular-loader": "^1.5",
+    "angular-route": "^1.5"
+  },
+  "devDependencies": {
+    "http-server": "^0.11.1",
+    "cpx": "^1.5.0"
+  },
+  "scripts": {
+    "start": "http-server -a localhost -p 8000 -c-1 ./app",
+    "postinstall": "npm run copy-framework",
+    "postupdate-deps": "npm run copy-framework",
+    "copy-framework": "cpx \"node_modules/{angular,angular-*}/**/*\" app/lib -C"
+  }
+}

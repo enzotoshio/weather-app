@@ -11,11 +11,13 @@
     "angular-route": "^1.5"
   },
   "devDependencies": {
-    "http-server": "^0.11.1",
-    "cpx": "^1.5.0"
+    "cpx": "^1.5.0",
+    "gulp": "^4.0.0",
+    "gulp-ng-config": "^1.5.0",
+    "http-server": "^0.11.1"
   },
   "scripts": {
-    "start": "http-server -a localhost -p 8000 -c-1 ./app",
+    "start": "gulp config && http-server -a localhost -p 8000 -c-1 ./app",
     "postinstall": "npm run copy-framework",
     "postupdate-deps": "npm run copy-framework",
     "copy-framework": "cpx \"node_modules/{angular,angular-*}/**/*\" app/lib -C"

@@ -1,0 +1,2 @@
+angular.module("weatherApp.config", [])
+.constant("weatherMapApiConfig", {"weatherHost":"http://api.openweathermap.org/data/2.5/weather","forecastHost":"http://api.openweathermap.org/data/2.5/forecast","appid":"3d8b309701a13f65b660fa2c64cdc517"});

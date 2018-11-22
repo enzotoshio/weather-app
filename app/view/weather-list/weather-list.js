@@ -10,18 +10,24 @@ angular
   .controller("WeatherListCtrl", [
     "weatherApiFactory",
     "$scope",
-    function(weatherApiFactory, $scope) {
-      var cities = ["dublin", "amsterdam"];
-      var self = this;
+    "$timeout",
+    function(weatherApiFactory, $scope, $timeout) {
+      var cities = ["dublin", "amsterdam", "berlin", "venice", "belfast"];
+      var vm = this;
 
-      self.weatherList = [];
+      vm.weatherList = [];
 
-      for (var i = 0; i < cities.length; i++) {
-        weatherApiFactory.get(cities[i]).then(function(response) {
-          // debugger;
-          self.weatherList.push(response.data);
-          $scope.$apply();
-        });
-      }
+      init(weatherApiFactory, cities, vm, $timeout, $scope);
     }
   ]);
+
+function init(weatherApiFactory, cities, vm, $timeout, $scope) {
+  for (var i = 0; i < cities.length; i++) {
+    weatherApiFactory.get(cities[i]).then(function(response) {
+      vm.weatherList.push(response.data);
+      $timeout(function() {
+        $scope.$apply();
+      }, 0);
+    });
+  }
+}

@@ -1,11 +1,24 @@
-<img class="card-img-top" src=".../100px180/" alt="Card image cap" />
-<div class="card-body">
-  <h5 class="card-title">{{ $ctrl.city.name }}</h5>
-  <p class="card-text">
-    This is a wider card with supporting text below as a natural lead-in to
-    additional content. This content is a little bit longer.
-  </p>
+<div class="card-header">
+  {{ $ctrl.city.name
+  }}<span ng-if="$ctrl.titleSuffix"> - {{ $ctrl.titleSuffix }}</span>
 </div>
-<div class="card-footer">
-  <small class="text-muted">Last updated 3 mins ago</small>
-</div>
+<ul class="list-group list-group-flush">
+  <li class="list-group-item">Average temperature: {{ $ctrl.temp }}</li>
+  <li class="list-group-item">Wind speed: {{ $ctrl.windSpeed }}</li>
+  <button
+    type="button"
+    class="btn btn-primary "
+    ng-click="$ctrl.showForecast()"
+    ng-if="!$ctrl.isForecast"
+  >
+    Show next hours forecast
+  </button>
+  <button
+    type="button"
+    class="btn btn-primary "
+    ng-click="$ctrl.showWeather()"
+    ng-if="$ctrl.isForecast"
+  >
+    Show weather
+  </button>
+</ul>

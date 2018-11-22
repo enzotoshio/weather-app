@@ -1,4 +1,4 @@
-angular.module("weatherApp.factory").factory("weatherApiFactory", [
+angular.module("weatherApp.factory").factory("forecastApiFactory", [
   "$http",
   "weatherMapApiConfig",
   function($http, weatherMapApiConfig) {
@@ -9,9 +9,9 @@ angular.module("weatherApp.factory").factory("weatherApiFactory", [
 
     function get(query) {
       var appidParam = "&appid=" + weatherMapApiConfig.appid;
-      // debugger;
+
       return $http.get(
-        weatherMapApiConfig.weatherHost + "?q=" + query + appidParam
+        weatherMapApiConfig.forecastHost + "?q=" + query + appidParam
       );
     }
   }

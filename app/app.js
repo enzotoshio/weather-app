@@ -1,11 +1,10 @@
 "use strict";
 
-// Declare app level module which depends on views, and core components
 angular
   .module("weatherApp", [
     "ngRoute",
     "weatherApp.weatherList",
-    "weatherApp.components"
+    "weatherApp.component"
   ])
   .config([
     "$locationProvider",
@@ -16,7 +15,7 @@ angular
       $routeProvider
         .when("/weather-list", {
           templateUrl: "view/weather-list/weather-list.html",
-          controllerAs: "ctrl",
+          controllerAs: "$ctrl",
           controller: "WeatherListCtrl"
         })
         .otherwise({ redirectTo: "/weather-list" });

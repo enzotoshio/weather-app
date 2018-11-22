@@ -1,6 +1,6 @@
 function HeroDetailController() {}
 
-angular.module("weatherApp.components", []).component("weatherCard", {
+angular.module("weatherApp.component", []).component("weatherCard", {
   templateUrl: "component/weather-card/weather-card.html",
   controller: HeroDetailController,
   element: "div",

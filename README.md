@@ -1,5 +1,7 @@
 # Weather App
 
+Weather app made with Angularjs using an Adaptive Fractal project structure.
+
 ## Installation
 
 ```sh

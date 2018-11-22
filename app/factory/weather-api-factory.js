@@ -1,15 +1,16 @@
+// Using env config (a simpler version of it) so it is possible to better automate and evolve the project
+
 angular.module("weatherApp.factory").factory("weatherApiFactory", [
   "$http",
   "weatherMapApiConfig",
   function($http, weatherMapApiConfig) {
-    var service = {
-      get: get
-    };
+    // Applying John Papa "Accessible Members Up Top" rule to better expose the factory interface and to improve maintainability
+    var service = { get: get };
     return service;
 
     function get(query) {
       var appidParam = "&appid=" + weatherMapApiConfig.appid;
-      // debugger;
+
       return $http.get(
         weatherMapApiConfig.weatherHost + "?q=" + query + appidParam
       );

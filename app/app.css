@@ -5,3 +5,7 @@
 .weather-card {
   margin-bottom: 30px;
 }
+
+#chartContainer {
+  margin-bottom: 50px;
+}
